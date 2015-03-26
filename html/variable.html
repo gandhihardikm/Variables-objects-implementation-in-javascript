@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<p>Enter your Name :</p>
+	<input id="name" type="text"></input>
+	<p>Enter your Student Id :</p>
+	<input id="Student_id" type="number"></input>
+	<p>Enter your Course Name :</p>
+	<input id="course_id" type="course"></input>
+	<br></br>
+	<button onclick="insertRecord()">Insert Record</button>
+	<p id="demo"></p>
+
+	<script>
+		function insertRecord() {
+    		var name = document.getElementById("name").value;
+    		var id = document.getElementById("Student_id").value;
+    		var course_id = document.getElementById("course_id").value;
+    		var combine = name + "'s id is : " + id + ". " + name +" has taken " + course_id + ".";
+    		document.getElementById("demo").innerHTML = combine;
+    		alert("Thanks for giving your attendance sir!!!");
+		}
+	</script>
+
+</body>
+</html>

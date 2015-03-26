@@ -1,0 +1,81 @@
+<!DOCTYPE>
+<html>
+<body>
+	<form>
+		<table>
+			<tr>
+				<td>
+					<h1>e-Room Designing</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h2>Color</h2> 
+					<input type="radio" name="color" value="Red">Red
+					<input type="radio" name="color" value="Blue">Blue
+					<input type="radio" name="color" value="Violet">Violet
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<h2>Size</h2> 
+					<input type="radio" name="size" value="10x10 inch">10x10 inch
+					<input type="radio" name="size" value="12x12 inch">12x12 inch
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<h2>Furniture</h2>
+					<input type="checkbox" name="sofa" value="SofaSet">Sofaset
+					<input type="checkbox" name="dining" value="DiningSet">DiningSet
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<button type="button" onclick="getItem()">Submit your Preference</button>		
+				</td>
+			</tr>		
+		</table>
+
+		<p id="room_color"></p>	
+		<p id="room_size"></p>
+		<p id="furniture"></p>
+		
+	</form>
+	
+	<script>
+		function getItem()
+		{
+			var room = {color:getList("color"),
+					size:getList("size"),
+					sofa:getList("sofa"),
+					dining:getList("dining"),
+			};		
+			var show = {
+					display : function()
+					{
+						document.getElementById("room_color").innerHTML = "Room color is : " + room.color;
+						document.getElementById("room_size").innerHTML = "Room size is : " + room.size;
+						document.getElementById("furniture").innerHTML = "Furniture : "+room.sofa+","+room.dining;
+					}				
+			};			
+			show.display();	
+			alert("Thank you for your room preference.");
+		}
+
+		function getList(string)
+		{
+			var name = document.getElementsByName(string);
+			for(i = 0 ;i<name.length;i++){
+				if(name[i].checked){
+					name[i].checked = false
+					return name[i].value;
+				}
+			}		
+		}
+	</script>
+</body>
+</html>
